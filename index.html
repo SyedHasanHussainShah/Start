@@ -1917,8 +1917,22 @@
                 display: none !important;
             }
 
+            /* Disable heavy animations on mobile */
+            .particles,
+            .hero-lines,
+            .hero-gradient,
+            .about-shape-ring,
+            .sparkle {
+                display: none !important;
+            }
+
+            /* Simplified mobile background */
+            .hero-bg {
+                background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            }
+
             section {
-                padding: 100px 0;
+                padding: 80px 0;
             }
 
             .nav-links,
@@ -1981,6 +1995,23 @@
 
             .stat-value {
                 font-size: 2rem;
+            }
+
+            /* Reduce animations on mobile */
+            .hero-content > * {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            /* Disable tilt effects on mobile */
+            .tilt {
+                transform: none !important;
             }
         }
 
@@ -2248,13 +2279,24 @@
                 </div>
                 <div class="team-card reveal tilt" data-tilt>
                     <div class="team-avatar">
-                        <img src="images/joh.jpg" alt="Jyotisman Sarma" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                        <img src="images/bha.jpg" alt="Bhargab Paul" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
                     </div>
-                    <h4 class="team-name">Jyotisman Sarma</h4>
-                    <p class="team-role">Editor</p>
+                    <h4 class="team-name">Bhargab Paul</h4>
+                    <p class="team-role">Editor and Artist</p>
                     <div class="team-socials">
-                        <a href="mailto:chandansarma032@gmail.com" class="team-social magnetic" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://instagram.com/_jyotismansarma__" target="_blank" class="team-social magnetic" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:bhargabpaul07@gmail.com" class="team-social magnetic" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://instagram.com/bhargab_art7" target="_blank" class="team-social magnetic" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="team-card reveal tilt" data-tilt>
+                    <div class="team-avatar">
+                        <img src="images/rakim.jpg" alt="Raktim Choudhury" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                    </div>
+                    <h4 class="team-name">Raktim Choudhury</h4>
+                    <p class="team-role">Graphic Designer</p>
+                    <div class="team-socials">
+                        <a href="mailto:raktimchoudhury41@gmail.com" class="team-social magnetic" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://instagram.com/rb_rahul" target="_blank" class="team-social magnetic" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="team-card reveal tilt" data-tilt>
@@ -2286,38 +2328,12 @@
             <div class="services-grid">
                 <div class="service-card reveal tilt" data-tilt>
                     <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h4 class="service-title">Website Development</h4>
-                    <p class="service-desc">
-                        Custom websites built with modern technologies that are fast,
-                        responsive, and optimized for conversions.
-                    </p>
-                    <a href="#contact" class="service-link magnetic">
-                        Get Started <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="service-card reveal tilt" data-tilt>
-                    <div class="service-icon">
-                        <i class="fas fa-pen-nib"></i>
-                    </div>
-                    <h4 class="service-title">Logo & Graphic Design</h4>
-                    <p class="service-desc">
-                        Distinctive brand identities and stunning visuals that make
-                        lasting impressions on your audience.
-                    </p>
-                    <a href="#contact" class="service-link magnetic">
-                        Get Started <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="service-card reveal tilt" data-tilt>
-                    <div class="service-icon">
                         <i class="fas fa-image"></i>
                     </div>
-                    <h4 class="service-title">Photo Editing</h4>
+                    <h4 class="service-title">Photo Edit</h4>
                     <p class="service-desc">
-                        Professional photo retouching and enhancement that brings
-                        your images to life with stunning clarity.
+                        Professional photo editing and retouching services to enhance
+                        your images with stunning visual quality.
                     </p>
                     <a href="#contact" class="service-link magnetic">
                         Get Started <i class="fas fa-arrow-right"></i>
@@ -2327,10 +2343,10 @@
                     <div class="service-icon">
                         <i class="fas fa-film"></i>
                     </div>
-                    <h4 class="service-title">Video Editing</h4>
+                    <h4 class="service-title">Video Edit</h4>
                     <p class="service-desc">
-                        Cinematic video production and editing that tells your story
-                        with compelling visual narratives.
+                        Professional video editing services with cinematic effects
+                        and compelling visual storytelling.
                     </p>
                     <a href="#contact" class="service-link magnetic">
                         Get Started <i class="fas fa-arrow-right"></i>
@@ -2338,12 +2354,12 @@
                 </div>
                 <div class="service-card reveal tilt" data-tilt>
                     <div class="service-icon">
-                        <i class="fas fa-share-alt"></i>
+                        <i class="fas fa-code"></i>
                     </div>
-                    <h4 class="service-title">Social Media Designs</h4>
+                    <h4 class="service-title">Website Development</h4>
                     <p class="service-desc">
-                        Scroll-stopping social content that builds engagement and
-                        strengthens your online presence.
+                        Custom website development with modern technologies,
+                        responsive design and optimal performance.
                     </p>
                     <a href="#contact" class="service-link magnetic">
                         Get Started <i class="fas fa-arrow-right"></i>
@@ -2351,12 +2367,90 @@
                 </div>
                 <div class="service-card reveal tilt" data-tilt>
                     <div class="service-icon">
-                        <i class="fas fa-palette"></i>
+                        <i class="fas fa-tools"></i>
                     </div>
-                    <h4 class="service-title">Brand Strategy</h4>
+                    <h4 class="service-title">Basic Website Maintenance and Update</h4>
                     <p class="service-desc">
-                        Comprehensive brand development that positions your business
-                        for long-term success and recognition.
+                        Regular website maintenance, updates and technical support
+                        to keep your site running smoothly.
+                    </p>
+                    <a href="#contact" class="service-link magnetic">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card reveal tilt" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4 class="service-title">Graphic Designing</h4>
+                    <p class="service-desc">
+                        Creative graphic design solutions for all your visual
+                        communication needs with stunning results.
+                    </p>
+                    <a href="#contact" class="service-link magnetic">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card reveal tilt" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-portrait"></i>
+                    </div>
+                    <h4 class="service-title">Portrait & Sketch Making</h4>
+                    <p class="service-desc">
+                        Custom portrait and sketch artwork services with artistic
+                        excellence and attention to detail.
+                    </p>
+                    <a href="#contact" class="service-link magnetic">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card reveal tilt" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h4 class="service-title">Logo Design</h4>
+                    <p class="service-desc">
+                        Professional logo design services creating unique brand
+                        identities that make lasting impressions.
+                    </p>
+                    <a href="#contact" class="service-link magnetic">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card reveal tilt" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h4 class="service-title">Business Banner Making</h4>
+                    <p class="service-desc">
+                        Eye-catching business banner designs for marketing
+                        campaigns and promotional activities.
+                    </p>
+                    <a href="#contact" class="service-link magnetic">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card reveal tilt" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h4 class="service-title">Social Media Post & Creative Design</h4>
+                    <p class="service-desc">
+                        Engaging social media content and creative designs
+                        that boost your online presence effectively.
+                    </p>
+                    <a href="#contact" class="service-link magnetic">
+                        Get Started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="service-card reveal tilt" data-tilt>
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h4 class="service-title">Digital Marketing Creativities</h4>
+                    <p class="service-desc">
+                        Creative digital marketing solutions and designs
+                        that drive engagement and conversions.
                     </p>
                     <a href="#contact" class="service-link magnetic">
                         Get Started <i class="fas fa-arrow-right"></i>
@@ -2507,19 +2601,151 @@
             <h3 class="modal-title">Message Sent! 🎉</h3>
             <p class="modal-text">
                 Thank you for reaching out. We'll get back to you within 24 hours.
-            </p>
-            <button class="modal-btn magnetic" id="modalCloseBtn">Got it</button>
-        </div>
     </div>
+    <div class="contact-method-text">
+        <div class="contact-method-label">WhatsApp</div>
+        <div class="contact-method-value">+91 93654 50565</div>
+    </div>
+    <i class="fas fa-arrow-right contact-method-arrow"></i>
+</a>
+<a href="mailto:designcrewofficial.studio@gmail.com" class="contact-method magnetic">
+    <div class="contact-method-icon email">
+        <i class="fas fa-envelope"></i>
+    </div>
+    <div class="contact-method-text">
+        <div class="contact-method-label">Email</div>
+        <div class="contact-method-value">designcrewofficial.studio@gmail.com</div>
+    </div>
+    <i class="fas fa-arrow-right contact-method-arrow"></i>
+</a>
+<a href="https://instagram.com/designcrewofficial.studio" target="_blank" class="contact-method magnetic">
+    <div class="contact-method-icon instagram">
+        <i class="fab fa-instagram"></i>
+    </div>
+    <div class="contact-method-text">
+        <div class="contact-method-label">Instagram</div>
+        <div class="contact-method-value">@designcrewofficial.studio</div>
+    </div>
+    <i class="fas fa-arrow-right contact-method-arrow"></i>
+</a>
+</div>
+</div>
+<div class="contact-form-wrapper reveal">
+<h4 class="contact-form-title">Send us a message</h4>
+<form id="contactForm">
+<div class="form-row">
+<div class="form-group">
+    <label class="form-label" for="name">Your Name</label>
+    <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+</div>
+<div class="form-group">
+    <label class="form-label" for="email">Email Address</label>
+    <input type="email" id="email" class="form-input" placeholder="john@example.com" required>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label" for="service">Service Interested In</label>
+<input type="text" id="service" class="form-input" placeholder="e.g., Website Development">
+</div>
+<div class="form-group">
+<label class="form-label" for="message">Your Message</label>
+<textarea id="message" class="form-textarea" placeholder="Tell us about your project..." required></textarea>
+</div>
+<button type="submit" class="form-submit magnetic">
+    Send Message
+    <i class="fas fa-paper-plane"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
 
-    <script>
-        // Page loader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('pageLoader').classList.add('hidden');
-            }, 500);
-        });
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-brand">
+<a href="#" class="logo magnetic">
+    <div class="logo-icon">DCS</div>
+    <span>DesignCrew</span>
+</a>
+<p>
+    A premium creative studio dedicated to crafting exceptional
+    digital experiences that elevate brands worldwide.
+</p>
+<div class="footer-socials">
+<a href="https://instagram.com/designcrewofficial.studio" target="_blank" class="footer-social magnetic" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="#" class="footer-social magnetic" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="footer-social magnetic" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<a href="#" class="footer-social magnetic" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h4>Navigation</h4>
+<ul class="footer-links">
+<li><a href="#about">About Us</a></li>
+<li><a href="#team">Our Team</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Services</h4>
+<ul class="footer-links">
+<li><a href="#services">Web Development</a></li>
+<li><a href="#services">Logo Design</a></li>
+<li><a href="#services">Photo Editing</a></li>
+<li><a href="#services">Video Editing</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Contact</h4>
+<ul class="footer-links">
+<li><a href="mailto:designcrewofficial.studio@gmail.com">designcrewofficial.studio@gmail.com</a></li>
+<li><a href="tel:+919365450565">+91 93654 50565</a></li>
+<li><a href="#">India</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p class="footer-copyright"> 2024 DesignCrew Studio. All rights reserved.</p>
+<div class="footer-legal">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
 
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+<div class="modal-content">
+<div class="modal-icon">
+<i class="fas fa-check"></i>
+</div>
+<h3 class="modal-title">Message Sent! 🎉</h3>
+<p class="modal-text">
+    Thank you for reaching out. We'll get back to you within 24 hours.
+</p>
+<button class="modal-btn magnetic" id="modalCloseBtn">Got it</button>
+</div>
+</div>
+
+<script>
+    // Mobile performance optimization
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
+    // Page loader - faster on mobile
+    window.addEventListener('load', () => {
+        const loadTime = isMobile ? 200 : 500;
+        setTimeout(() => {
+            document.getElementById('pageLoader').classList.add('hidden');
+        }, loadTime);
+    });
+
+    // Skip heavy effects on mobile
+    if (!isMobile) {
         // Custom cursor
         const cursorDot = document.getElementById('cursorDot');
         const cursorOutline = document.getElementById('cursorOutline');
@@ -2626,41 +2852,11 @@
             }
         }
         createHeroLines();
+    }
 
-        // Navigation scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuClose = document.getElementById('mobileMenuClose');
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Reveal on scroll
+    // Common functions for both mobile and desktop
+    // Reveal on scroll - optimized for mobile
+    if (!isMobile) {
         const revealElements = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             revealElements.forEach((el, index) => {
@@ -2739,85 +2935,88 @@
                 el.style.transform = 'translate(0, 0)';
             });
         });
+    }
 
-        // Confetti effect
-        function createConfetti() {
-            const colors = ['#fbbf24', '#f472b6', '#818cf8', '#34d399', '#fff'];
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = '-20px';
-                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.width = (Math.random() * 10 + 5) + 'px';
-                confetti.style.height = (Math.random() * 10 + 5) + 'px';
-                confetti.style.setProperty('--duration', (Math.random() * 2 + 2) + 's');
-                confetti.style.setProperty('--rotation', (Math.random() * 720 - 360) + 'deg');
-                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                document.body.appendChild(confetti);
-                setTimeout(() => confetti.remove(), 4000);
-            }
+    // Confetti effect - for both mobile and desktop
+    function createConfetti() {
+        const colors = ['#fbbf24', '#f472b6', '#818cf8', '#34d399', '#fff'];
+        const confettiCount = isMobile ? 20 : 50; // Reduce confetti on mobile
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '-20px';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.width = (Math.random() * 10 + 5) + 'px';
+            confetti.style.height = (Math.random() * 10 + 5) + 'px';
+            confetti.style.setProperty('--duration', (Math.random() * 2 + 2) + 's');
+            confetti.style.setProperty('--rotation', (Math.random() * 720 - 360) + 'deg');
+            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 4000);
         }
+    }
 
-        // Contact form handling
-        const contactForm = document.getElementById('contactForm');
-        const successModal = document.getElementById('successModal');
-        const modalCloseBtn = document.getElementById('modalCloseBtn');
+    // Contact form handling
+    const contactForm = document.getElementById('contactForm');
+    const successModal = document.getElementById('successModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
 
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                service: document.getElementById('service').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Create mailto link with form data
-            const subject = encodeURIComponent(`New Service Request: ${formData.service}`);
-            const body = encodeURIComponent(
-                `Name: ${formData.name}\n` +
-                `Email: ${formData.email}\n` +
-                `Service: ${formData.service}\n\n` +
-                `Message:\n${formData.message}`
-            );
-            
-            // Open email client with pre-filled data
-            window.location.href = `mailto:designcrewofficial.studio@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Show success modal
-            successModal.classList.add('active');
-            createConfetti();
-            contactForm.reset();
-        });
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            service: document.getElementById('service').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Create mailto link with form data
+        const subject = encodeURIComponent(`New Service Request: ${formData.service}`);
+        const body = encodeURIComponent(
+            `Name: ${formData.name}\n` +
+            `Email: ${formData.email}\n` +
+            `Service: ${formData.service}\n\n` +
+            `Message:\n${formData.message}`
+        );
+        
+        // Open email client with pre-filled data
+        window.location.href = `mailto:designcrewofficial.studio@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Show success modal
+        successModal.classList.add('active');
+        createConfetti();
+        contactForm.reset();
+    });
 
-        modalCloseBtn.addEventListener('click', () => {
+    modalCloseBtn.addEventListener('click', () => {
+        successModal.classList.remove('active');
+    });
+
+    successModal.addEventListener('click', (e) => {
+        if (e.target === successModal) {
             successModal.classList.remove('active');
-        });
+        }
+    });
 
-        successModal.addEventListener('click', (e) => {
-            if (e.target === successModal) {
-                successModal.classList.remove('active');
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
+    });
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Parallax for hero gradients on mouse move
+    // Parallax for hero gradients on mouse move - desktop only
+    if (!isMobile) {
         document.addEventListener('mousemove', (e) => {
             const gradients = document.querySelectorAll('.hero-gradient');
             const x = e.clientX / window.innerWidth;
@@ -2830,6 +3029,7 @@
                 gradient.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
             });
         });
-    </script>
+    }
+</script>
 </body>
 </html>
