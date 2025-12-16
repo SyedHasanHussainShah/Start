@@ -360,6 +360,16 @@
             color: var(--text-primary);
             font-size: 1.5rem;
             cursor: none;
+            padding: 8px;
+            transition: var(--transition-normal);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn.active {
+            color: var(--accent);
         }
 
         /* Hero Section */
@@ -985,26 +995,6 @@
         }
 
         .stat-label {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-
-        /* Team Section */
-        .team {
-            position: relative;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
-        }
-
-        .team-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
             padding: 40px 28px;
             text-align: center;
             transition: var(--transition-normal);
@@ -1013,13 +1003,170 @@
             cursor: none;
         }
 
-        .team-card::before {
+        /* Client Reviews Section */
+        .reviews {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews-cube-carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 60px 0;
+        }
+
+        .reviews-cube-track {
+            display: flex;
+            gap: 30px;
+            animation: scrollCubes 35s linear infinite;
+        }
+
+        @keyframes scrollCubes {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .review-cube {
+            min-width: 320px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-cube::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.15) 0%, transparent 60%);
-            opacity: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-accent);
+            transform: scaleX(0);
             transition: var(--transition-normal);
+        }
+
+        .review-cube:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.2);
+        }
+
+        .review-cube:hover::before {
+            transform: scaleX(1);
+        }
+
+        .review-cube-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .review-cube-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .review-cube-info {
+            flex: 1;
+        }
+
+        .review-cube-name {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .review-cube-role {
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .review-cube-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .review-cube-stars i {
+            color: var(--accent);
+            font-size: 0.875rem;
+        }
+
+        .review-cube-text {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            font-style: italic;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            box-orient: vertical;
+        }
+
+        /* Mobile responsive for cubes */
+        @media (max-width: 768px) {
+            .review-cube {
+                min-width: 280px;
+                padding: 20px;
+            }
+
+            .review-cube-avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .review-cube-name {
+                font-size: 1rem;
+            }
+
+            .review-cube-role {
+                font-size: 0.8rem;
+            }
+
+            .review-cube-text {
+                font-size: 0.875rem;
+            }
+
+            .reviews-cube-track {
+                animation: scrollCubesMobile 30s linear infinite;
+            }
+
+            @keyframes scrollCubesMobile {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
         }
 
         .team-card::after {
@@ -1917,22 +2064,19 @@
                 display: none !important;
             }
 
-            /* Disable heavy animations on mobile */
+            /* Simplified mobile background - keep some effects */
             .particles,
-            .hero-lines,
-            .hero-gradient,
-            .about-shape-ring,
-            .sparkle {
+            .hero-lines {
                 display: none !important;
             }
 
-            /* Simplified mobile background */
-            .hero-bg {
-                background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            /* Keep hero gradients for mobile but simplified */
+            .hero-gradient {
+                opacity: 0.3;
             }
 
             section {
-                padding: 80px 0;
+                padding: 60px 0;
             }
 
             .nav-links,
@@ -1963,6 +2107,31 @@
 
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Fix contact section for mobile */
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact-info {
+                text-align: center;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .contact-method-arrow {
+                display: none;
             }
 
             .form-row {
@@ -1997,16 +2166,21 @@
                 font-size: 2rem;
             }
 
-            /* Reduce animations on mobile */
+            /* Enable animations on mobile but simplified */
             .hero-content > * {
-                animation: none !important;
-                opacity: 1 !important;
-                transform: none !important;
+                opacity: 1;
+                transform: none;
             }
 
             .reveal {
-                opacity: 1 !important;
-                transform: none !important;
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .reveal.visible {
+                opacity: 1;
+                transform: translateY(0);
             }
 
             /* Disable tilt effects on mobile */
@@ -2036,6 +2210,58 @@
 
             .about-stats {
                 grid-template-columns: 1fr;
+            }
+
+            /* Fix modal for mobile */
+            .modal-content {
+                padding: 32px 24px;
+                margin: 20px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .modal-text {
+                font-size: 1rem;
+            }
+
+            .modal-btn {
+                width: 100%;
+                padding: 18px;
+            }
+
+            /* Fix contact form for mobile */
+            .contact-form-wrapper {
+                padding: 28px 20px;
+            }
+
+            .form-input,
+            .form-textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .form-submit {
+                padding: 18px;
+                font-size: 16px;
+            }
+
+            /* Fix contact methods for very small screens */
+            .contact-method {
+                padding: 16px;
+            }
+
+            .contact-method-icon {
+                width: 48px;
+                height: 48px;
+            }
+
+            .contact-method-label {
+                font-size: 0.875rem;
+            }
+
+            .contact-method-value {
+                font-size: 1rem;
             }
         }
 
@@ -2224,6 +2450,8 @@
     <!-- Team Section -->
     <section class="team" id="team">
         <div class="container">
+         
+            
             <div class="section-header reveal">
                 <span class="section-label">Our Team</span>
                 <h2 class="section-title">Meet the Crew</h2>
@@ -2283,28 +2511,6 @@
                     </div>
                     <h4 class="team-name">Bhargab Paul</h4>
                     <p class="team-role">Editor and Artist</p>
-                    <div class="team-socials">
-                        <a href="mailto:bhargabpaul07@gmail.com" class="team-social magnetic" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://instagram.com/bhargab_art7" target="_blank" class="team-social magnetic" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="team-card reveal tilt" data-tilt>
-                    <div class="team-avatar">
-                        <img src="images/rakim.jpg" alt="Raktim Choudhury" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                    </div>
-                    <h4 class="team-name">Raktim Choudhury</h4>
-                    <p class="team-role">Graphic Designer</p>
-                    <div class="team-socials">
-                        <a href="mailto:raktimchoudhury41@gmail.com" class="team-social magnetic" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                        <a href="https://instagram.com/rb_rahul" target="_blank" class="team-social magnetic" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="team-card reveal tilt" data-tilt>
-                    <div class="team-avatar">
-                        <img src="images/dam.jpg" alt="Dhritisman sarma" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                    </div>
-                    <h4 class="team-name">Dhritisman sarma</h4>
-                    <p class="team-role">Project Manager</p>
                     <div class="team-socials">
                         <a href="mailto:dhritishmansarma47@gmail.com" class="team-social magnetic" aria-label="Email"><i class="fas fa-envelope"></i></a>
                         <a href="https://instagram.com/dhri_tishman777" target="_blank" class="team-social magnetic" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -2460,7 +2666,157 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Client Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-label">Client Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-desc">
+                    Real feedback from amazing clients we've had the pleasure to work with
+                </p>
+            </div>
+            
+            <!-- Moving Reviews Cubes -->
+            <div class="reviews-cube-carousel">
+                <div class="reviews-cube-track">
+                    <!-- First set of review cubes -->
+                    <div class="review-cube reveal">
+                        <div class="review-cube-header">
+                            <div class="review-cube-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="review-cube-info">
+                                <h4 class="review-cube-name">Sarah Johnson</h4>
+                                <p class="review-cube-role">CEO, TechStart</p>
+                            </div>
+                        </div>
+                        <div class="review-cube-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-cube-text">
+                            "Absolutely outstanding work! DesignCrew transformed our vision into reality with exceptional creativity and professionalism."
+                        </p>
+                    </div>
+                    
+                    <div class="review-cube reveal">
+                        <div class="review-cube-header">
+                            <div class="review-cube-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="review-cube-info">
+                                <h4 class="review-cube-name">Michael Chen</h4>
+                                <p class="review-cube-role">Marketing Director</p>
+                            </div>
+                        </div>
+                        <div class="review-cube-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-cube-text">
+                            "The team's attention to detail and creative approach exceeded our expectations. Highly recommend!"
+                        </p>
+                    </div>
+                    
+                    <div class="review-cube reveal">
+                        <div class="review-cube-header">
+                            <div class="review-cube-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="review-cube-info">
+                                <h4 class="review-cube-name">Emily Rodriguez</h4>
+                                <p class="review-cube-role">Founder, Creative Co</p>
+                            </div>
+                        </div>
+                        <div class="review-cube-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-cube-text">
+                            "Professional, creative, and delivered on time. The perfect partner for our brand redesign project."
+                        </p>
+                    </div>
+                    
+                    <div class="review-cube reveal">
+                        <div class="review-cube-header">
+                            <div class="review-cube-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="review-cube-info">
+                                <h4 class="review-cube-name">David Kim</h4>
+                                <p class="review-cube-role">Product Manager</p>
+                            </div>
+                        </div>
+                        <div class="review-cube-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-cube-text">
+                            "Exceptional service and stunning designs. They truly understand client needs and deliver beyond expectations."
+                        </p>
+                    </div>
+                    
+                    <div class="review-cube reveal">
+                        <div class="review-cube-header">
+                            <div class="review-cube-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="review-cube-info">
+                                <h4 class="review-cube-name">Lisa Thompson</h4>
+                                <p class="review-cube-role">Brand Manager</p>
+                            </div>
+                        </div>
+                        <div class="review-cube-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-cube-text">
+                            "The best design team we've worked with. Creative, responsive, and delivers outstanding results every time."
+                        </p>
+                    </div>
+                    
+                    <div class="review-cube reveal">
+                        <div class="review-cube-header">
+                            <div class="review-cube-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="review-cube-info">
+                                <h4 class="review-cube-name">James Wilson</h4>
+                                <p class="review-cube-role">Startup Founder</p>
+                            </div>
+                        </div>
+                        <div class="review-cube-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-cube-text">
+                            "Incredible attention to detail and innovative design solutions. Our brand has never looked better!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-wrapper">
@@ -2855,56 +3211,108 @@
     }
 
     // Common functions for both mobile and desktop
-    // Reveal on scroll - optimized for mobile
+    // Navigation scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+
+    function toggleMobileMenu() {
+        const isOpen = mobileMenu.classList.contains('active');
+        
+        if (isOpen) {
+            // Close menu
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.classList.remove('active');
+        } else {
+            // Open menu
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            mobileMenuBtn.classList.add('active');
+        }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        mobileMenuBtn.classList.remove('active');
+    });
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileMenuBtn.classList.remove('active');
+        });
+    });
+
+    // Reveal on scroll - works on both mobile and desktop
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        revealElements.forEach((el, index) => {
+            const elementTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight - 80) {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 50);
+            }
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // Counter animation - works on both mobile and desktop
+    const counters = document.querySelectorAll('[data-count]');
+    const animateCounter = (el) => {
+        const target = parseInt(el.dataset.count);
+        const duration = isMobile ? 1500 : 2000; // Faster on mobile
+        const start = performance.now();
+
+        const update = (currentTime) => {
+            const elapsed = currentTime - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(easeOut * target);
+            el.textContent = current + '+';
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        };
+        requestAnimationFrame(update);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // Tilt effect - desktop only
     if (!isMobile) {
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealOnScroll = () => {
-            revealElements.forEach((el, index) => {
-                const elementTop = el.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (elementTop < windowHeight - 80) {
-                    setTimeout(() => {
-                        el.classList.add('visible');
-                    }, index * 50);
-                }
-            });
-        };
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-
-        // Counter animation
-        const counters = document.querySelectorAll('[data-count]');
-        const animateCounter = (el) => {
-            const target = parseInt(el.dataset.count);
-            const duration = 2000;
-            const start = performance.now();
-
-            const update = (currentTime) => {
-                const elapsed = currentTime - start;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeOut = 1 - Math.pow(1 - progress, 3);
-                const current = Math.floor(easeOut * target);
-                el.textContent = current + '+';
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            };
-            requestAnimationFrame(update);
-        };
-
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounter(entry.target);
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => counterObserver.observe(counter));
-
-        // Tilt effect
         const tiltElements = document.querySelectorAll('[data-tilt]');
         tiltElements.forEach(el => {
             el.addEventListener('mousemove', (e) => {
@@ -2922,7 +3330,7 @@
             });
         });
 
-        // Magnetic effect
+        // Magnetic effect - desktop only
         const magneticElements = document.querySelectorAll('.magnetic');
         magneticElements.forEach(el => {
             el.addEventListener('mousemove', (e) => {
